@@ -13,22 +13,32 @@ import java.util.*;
 		int a=sc.nextInt();
 		System.out.println("Choose 2nd secret no(BOB)");
 		int b=sc.nextInt();
+		System.out.println("Choose 3rd secret no(Charlie)");
+		int c=sc.nextInt();
 		
 		int A = (int)Math.pow(g,a)%p;
 		int B = (int)Math.pow(g,b)%p;
+		int C = (int)Math.pow(g,c)%p;
 		
-		int S_A = (int)Math.pow(B,a)%p;
-		int S_B =(int)Math.pow(A,b)%p;
+		int AB = (int)Math.pow(B,a)%p;
+		int BC = (int)Math.pow(C,b)%p;
+		int CA = (int)Math.pow(A,c)%p;
+
+		int ABC = (int)Math.pow(BC,a)%p;
+		int BAC = (int)Math.pow(CA,b)%p;
+		int CAB = (int)Math.pow(AB,c)%p;
+
+		sc.close();
 		
-		if(S_A==S_B)
+		if(ABC==BAC && ABC==CAB)
 		{
-			System.out.println("ALice and Bob can communicate with each other!!!");
-			System.out.println("They share a secret no = "+S_A);			
+			System.out.println("ALice, Bob and Charlie can communicate with each other!!!");
+			System.out.println("They share a secret no = "+ABC);
 		}
 		
 		else
 		{
-			System.out.println("ALice and Bob cannot communicate with each other!!!");
+			System.out.println("ALice, Bob and Charlie cannot communicate with each other!!!");
 		}
 	}	
 }
