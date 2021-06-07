@@ -7,8 +7,27 @@ import java.util.*;
 		Scanner sc=new Scanner(System.in);
 
 		// get prime number and primitive root
-		System.out.println("Enter modulo(p)");
+		int min = 2;
+		int max = 100;
+
+		System.out.println("Enter prime number between " + min + " and " + max + ":");
 		int p=sc.nextInt();
+
+		//check if p is between min and max
+		if (p < min || p > max) {
+			System.out.println("p = " + p + " is not in desired range. Exit!");
+			return;
+		}
+
+		//check if p is a prime number
+		for (int i = 2; i <= p/2; ++i) {
+			if (p % i == 0) {
+				System.out.println("p = " + p + " is not prime number. Exit!");
+				return;
+			}
+		}
+
+		// enter g here
 		System.out.println("Enter primitive root of "+p);
 		int g=sc.nextInt();
 
