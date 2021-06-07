@@ -10,7 +10,7 @@ import java.util.*;
 		int min = 2;
 		int max = 100;
 
-		System.out.println("Enter prime number between " + min + " and " + max + ":");
+		System.out.println("Enter prime number (" + min + " < p < " + max + ") :");
 		int p=sc.nextInt();
 
 		//check if p is between min and max
