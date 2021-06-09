@@ -95,6 +95,12 @@ import java.util.*;
 		System.out.println("Enter number of participants: ");
 		int n=sc.nextInt();
 
+		// check number of participants
+		if (n < 2) {
+			System.out.println("Not enough participants!");
+			return;
+		}
+
 		// get secret keys
 		int[] secrets = new int[n];
 
