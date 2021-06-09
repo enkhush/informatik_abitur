@@ -106,8 +106,15 @@ import java.util.*;
 
 		for (int i = 0; i < n; ++i) {
 			System.out.println("Enter secret for participant " + i + ":");
+
 			// get and store secret to array
 			secrets[i] = sc.nextInt();
+
+			// check for negative or zero
+			while (secrets[i] <= 0) {
+				System.out.println("Please enter positive integer: ");
+				secrets[i] = sc.nextInt();
+			}
 		}
 
 		sc.close();
