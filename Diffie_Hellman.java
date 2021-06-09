@@ -53,6 +53,23 @@ import java.util.*;
 		System.out.println("Enter primitive root of "+p);
 		int g=sc.nextInt();
 
+		// prime number check
+		boolean found = false;  // indicates if a number is in primes[] or roots[][]
+		int index = 0;
+
+		for (int i = 0; i < primes.length; ++i) {
+			if (primes[i] == p) {
+				found = true;
+				index = i;
+				break;
+			}
+		}
+
+		if (!found) {
+			System.out.println(p + " is not in the desired range.");
+			return;
+		}
+
 		// get a number of participants
 		System.out.println("Enter number of participants: ");
 		int n=sc.nextInt();
