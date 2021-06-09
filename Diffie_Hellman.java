@@ -13,16 +13,16 @@ import java.util.*;
 		System.out.println("Enter prime number (" + min + " < p < " + max + ") :");
 		int p=sc.nextInt();
 
-		//check if p is between min and max
+		// check if p is between min and max
 		if (p < min || p > max) {
 			System.out.println("p = " + p + " is not in desired range. Exit!");
 			return;
 		}
 
-		//check if p is a prime number
+		// check if p is a prime number
 		for (int i = 2; i <= p/2; ++i) {
 			if (p % i == 0) {
-				System.out.println("p = " + p + " is not prime number. Exit!");
+				System.out.println("p = " + p + " is not a prime number. Exit!");
 				return;
 			}
 		}
