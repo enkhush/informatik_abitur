@@ -6,9 +6,31 @@ import java.util.*;
 	{
 		Scanner sc=new Scanner(System.in);
 
+		//generate prime numbers 2 to 20, store in primes array
+		int[] primes = new int[] {2, 3, 5, 7, 11, 13, 17, 19};
+		int[][] roots = new int[][] {
+			{1, 1, 1, 1, 1, 1, 1, 1}, // 2
+			{2, 2, 2, 2, 2, 2, 2, 2}, // 3
+			{2, 3, 3, 3, 3, 3, 3, 3}, // 5
+			{3, 5, 5, 5, 5, 5, 5, 5}, // 7
+			{2, 6, 7, 8, 8, 8, 8, 8}, // 11
+			{2, 6, 7, 11, 11 ,11 ,11 ,11}, // 13
+			{3, 5, 6, 7, 10, 11, 12, 14}, // 17
+			{2, 3, 10, 13, 14, 15, 15, 15}}; // 19
+
+		System.out.println(primes.length + " " + roots[0].length);
+
+		for (int i = 0; i < primes.length; ++i) {
+			System.out.print(primes[i] + ": ");
+			for (int j = 0; j < roots[0].length; ++j)
+				System.out.print(roots[i][j] + " ");
+
+			System.out.println();
+		}
+
 		// get prime number and primitive root
 		int min = 2;
-		int max = 100;
+		int max = 20;
 
 		System.out.println("Enter prime number (" + min + " < p < " + max + ") :");
 		int p=sc.nextInt();
