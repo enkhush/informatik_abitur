@@ -70,6 +70,21 @@ import java.util.*;
 			return;
 		}
 
+		// primitive root check
+		found = false;
+
+		for (int j = 0; j < roots[index].length; ++j) {
+			if (g == roots[index][j]) {
+				found = true;
+				break;
+			}
+		}
+
+		if (!found) {
+			System.out.println(g + " is not a primitive root of " + p);
+			return;
+		}
+
 		// get a number of participants
 		System.out.println("Enter number of participants: ");
 		int n=sc.nextInt();
