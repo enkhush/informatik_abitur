@@ -85,6 +85,12 @@ import java.util.*;
 			return;
 		}
 
+		// check if g smaller p and greater 0
+		if (g >= p || g < 0) {
+			System.out.println("g needs to be smaller p and greater 0.");
+			return;
+		}
+
 		// get a number of participants
 		System.out.println("Enter number of participants: ");
 		int n=sc.nextInt();
