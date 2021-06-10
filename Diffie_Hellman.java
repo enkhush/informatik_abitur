@@ -115,6 +115,12 @@ import java.util.*;
 				System.out.println("Please enter positive integer: ");
 				secrets[i] = sc.nextInt();
 			}
+
+			// check if secret is smaller p
+			while (secrets[i] > p) {
+				System.out.println("Please enter a number smaller " + p);
+				secrets[i] = sc.nextInt();
+			}
 		}
 
 		sc.close();
