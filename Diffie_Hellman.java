@@ -54,16 +54,8 @@ import java.util.*;
 		int g=sc.nextInt();
 
 		// prime number check
-		boolean found = false;  // indicates if a number is in primes[] or roots[][]
-		int index = 0;
-
-		for (int i = 0; i < primes.length; ++i) {
-			if (primes[i] == p) {
-				found = true;
-				index = i;
-				break;
-			}
-		}
+		int index = locate(p, primes); // locate position of 'number' in primes[]
+		boolean found = index != primes.length; // check if index in valid range
 
 		if (!found) {
 			System.out.println(p + " is not in the desired range.");
@@ -71,14 +63,8 @@ import java.util.*;
 		}
 
 		// primitive root check
-		found = false;
-
-		for (int j = 0; j < roots[index].length; ++j) {
-			if (g == roots[index][j]) {
-				found = true;
-				break;
-			}
-		}
+		int index_g = locate(g, roots[index]);
+		found = index_g != roots[index].length;
 
 		if (!found) {
 			System.out.println(g + " is not a primitive root of " + p);
@@ -173,5 +159,23 @@ import java.util.*;
 				}
 			}
 		}
-	}	
+	}
+
+	// locate 'number' in 'array'
+	// returns index of 'number' in 'array':
+	// - 0..length-1, if 'number' is in 'array', or
+	// - length, if 'number' is not in 'array'
+	static int locate(int number, int[] array) {
+		int j;
+		boolean found = false;
+
+		for ( j = 0; j < array.length; ++j) {
+			if (number == array[j]) {
+				found = true;
+				break;
+			}
+		}
+
+		return j;
+	}
 }
