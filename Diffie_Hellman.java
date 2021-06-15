@@ -137,16 +137,7 @@ import java.util.*;
 		}
 
 		// calculate shared keys
-		int[] shared_keys = new int[n];
-
-		for (int i = 0; i < n; ++i) {
-			j = i + 1;
-			if (j >= n)
-				j = 0;
-			shared_keys[i] = (int)Math.pow(public_keys[j][n-2],secrets[i])%p;
-
-			System.out.println("Shared secret key for participant "+ i + ": " + shared_keys[i]);
-		}
+		int[] shared_keys = calculateSharedKeys(p, n, secrets, public_keys);
 		
 		// compare shared keys for compatibility
 		for (int i = 0; i < n-1; ++i) {
@@ -159,6 +150,28 @@ import java.util.*;
 				}
 			}
 		}
+	}
+
+	/**
+	 * @param p           prime number
+	 * @param n           participants
+	 * @param secrets     secret keys of participants
+	 * @param public_keys public keys of participants
+	 * @return
+	 */
+	private static int[] calculateSharedKeys(int p, int n, int[] secrets, int[][] public_keys) {
+		int j;
+		int[] sk = new int[n];
+
+		for (int i = 0; i < n; ++i) {
+			j = i + 1;
+			if (j >= n)
+				j = 0;
+			sk[i] = (int)Math.pow(public_keys[j][n-2],secrets[i])%p;
+
+			System.out.println("Shared secret key for participant "+ i + ": " + sk[i]);
+		}
+		return sk;
 	}
 
 	// locate 'number' in 'array'
