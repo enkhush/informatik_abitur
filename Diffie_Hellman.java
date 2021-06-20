@@ -124,9 +124,9 @@ import java.util.*;
 		for (int k = 0; k < n-1; ++k) {      // public keys
 			for (int i = 0; i < n; ++i) {    // participants
 
-				if (k != 0) {
-					j = i + 1;
-					if ( j >= n)
+				if (k != 0) {                // first run using g as base
+					j = i + 1;               // after above; gives keys in circles to all participants
+					if ( j >= n)             // key of last participant is given to first participant
 						j = 0;
 					base = public_keys[j][k-1];
 				}
@@ -167,7 +167,7 @@ import java.util.*;
 			j = i + 1;
 			if (j >= n)
 				j = 0;
-			sk[i] = (int)Math.pow(public_keys[j][n-2],secrets[i])%p;
+			sk[i] = (int)Math.pow(public_keys[j][n-2],secrets[i])%p; // use 'last' public keys (n-2) as base
 
 			System.out.println("Shared secret key for participant "+ i + ": " + sk[i]);
 		}
