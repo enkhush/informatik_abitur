@@ -180,11 +180,9 @@ import java.util.*;
 	// - length, if 'number' is not in 'array'
 	static int locate(int number, int[] array) {
 		int j;
-		boolean found = false;
 
 		for ( j = 0; j < array.length; ++j) {
 			if (number == array[j]) {
-				found = true;
 				break;
 			}
 		}
