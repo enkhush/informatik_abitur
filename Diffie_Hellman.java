@@ -38,14 +38,14 @@ import java.util.*;
 		// check if p is between min and max
 		if (p < min || p > max) {
 			System.out.println("p = " + p + " is not in desired range. Exit!");
-			return;
+			closeScannerAndExit(sc);
 		}
 
 		// check if p is a prime number
 		for (int i = 2; i <= p/2; ++i) {
 			if (p % i == 0) {
 				System.out.println("p = " + p + " is not a prime number. Exit!");
-				return;
+				closeScannerAndExit(sc);
 			}
 		}
 
@@ -59,7 +59,7 @@ import java.util.*;
 
 		if (!found) {
 			System.out.println(p + " is not in the desired range.");
-			return;
+			closeScannerAndExit(sc);
 		}
 
 		// primitive root check
@@ -68,13 +68,13 @@ import java.util.*;
 
 		if (!found) {
 			System.out.println(g + " is not a primitive root of " + p);
-			return;
+			closeScannerAndExit(sc);
 		}
 
 		// check if g smaller p and greater 0
 		if (g >= p || g < 0) {
 			System.out.println("g needs to be smaller p and greater 0.");
-			return;
+			closeScannerAndExit(sc);
 		}
 
 		// get a number of participants
@@ -84,7 +84,7 @@ import java.util.*;
 		// check number of participants
 		if (n < 2) {
 			System.out.println("Not enough participants!");
-			return;
+			closeScannerAndExit(sc);
 		}
 
 		// get secret keys
@@ -150,6 +150,14 @@ import java.util.*;
 				}
 			}
 		}
+	}
+
+	/**
+	 * @param sc
+	 */
+	private static void closeScannerAndExit(Scanner sc) {
+		sc.close();      // close scanner and exit
+		System.exit(1);
 	}
 
 	/**
