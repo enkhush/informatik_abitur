@@ -153,7 +153,7 @@ import java.util.*;
 	}
 
 	/**
-	 * @param sc
+	 * @param sc Scanner object
 	 */
 	private static void closeScannerAndExit(Scanner sc) {
 		sc.close();      // close scanner and exit
@@ -165,7 +165,7 @@ import java.util.*;
 	 * @param n           participants
 	 * @param secrets     secret keys of participants
 	 * @param public_keys public keys of participants
-	 * @return
+	 * @return shared_keys shared secret for all participants
 	 */
 	private static int[] calculateSharedKeys(int p, int n, int[] secrets, int[][] public_keys) {
 		int j;
@@ -182,10 +182,15 @@ import java.util.*;
 		return sk;
 	}
 
-	// locate 'number' in 'array'
-	// returns index of 'number' in 'array':
-	// - 0..length-1, if 'number' is in 'array', or
-	// - length, if 'number' is not in 'array'
+	/**
+	 * locate 'number' in 'array'
+	 *
+	 * @param  number given number
+	 * @param  array  integer array
+	 * @return index  position of 'number' in 'array'
+	 * - 0..length-1, if 'number' is in 'array', or
+	 * - length, if 'number' is not in 'array'
+	 **/
 	static int locate(int number, int[] array) {
 		int j;
 
