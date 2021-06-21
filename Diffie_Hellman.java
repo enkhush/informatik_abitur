@@ -18,7 +18,7 @@ import java.util.*;
 			{3, 5, 6, 7, 10, 11, 12, 14}, // 17
 			{2, 3, 10, 13, 14, 15, 15, 15}}; // 19
 
-		System.out.println(primes.length + " " + roots[0].length);
+		System.out.println("primes: their roots");
 
 		for (int i = 0; i < primes.length; ++i) {
 			System.out.print(primes[i] + ": ");
@@ -50,7 +50,7 @@ import java.util.*;
 		}
 
 		// enter g here
-		System.out.println("Enter primitive root of "+p);
+		System.out.println("Enter primitive root 'g' of "+p);
 		int g=sc.nextInt();
 
 		// prime number check
@@ -58,7 +58,7 @@ import java.util.*;
 		boolean found = index != primes.length; // check if index in valid range
 
 		if (!found) {
-			System.out.println(p + " is not in the desired range.");
+			System.out.println(p + " is not in the desired range. Exit!");
 			closeScannerAndExit(sc);
 		}
 
@@ -67,13 +67,13 @@ import java.util.*;
 		found = index_g != roots[index].length;
 
 		if (!found) {
-			System.out.println(g + " is not a primitive root of " + p);
+			System.out.println(g + " is not a primitive root of " + p + ". Exit!");
 			closeScannerAndExit(sc);
 		}
 
 		// check if g smaller p and greater 0
 		if (g >= p || g < 0) {
-			System.out.println("g needs to be smaller p and greater 0.");
+			System.out.println("g needs to be smaller p and greater 0. Exit!");
 			closeScannerAndExit(sc);
 		}
 
@@ -83,7 +83,7 @@ import java.util.*;
 
 		// check number of participants
 		if (n < 2) {
-			System.out.println("Not enough participants!");
+			System.out.println("Not enough participants. Exit!");
 			closeScannerAndExit(sc);
 		}
 
