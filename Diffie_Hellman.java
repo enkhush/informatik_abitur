@@ -32,7 +32,7 @@ import java.util.*;
 		int min = 2;
 		int max = 20;
 
-		System.out.println("Enter prime number (" + min + " < p < " + max + ") :");
+		System.out.println("Enter prime number (" + min + " < p < " + max + "):");
 		int p=sc.nextInt();
 
 		// check if p is between min and max
@@ -50,7 +50,7 @@ import java.util.*;
 		}
 
 		// enter g here
-		System.out.println("Enter primitive root 'g' of "+p);
+		System.out.println("Enter primitive root 'g' of "+ p + ":");
 		int g=sc.nextInt();
 
 		// prime number check
